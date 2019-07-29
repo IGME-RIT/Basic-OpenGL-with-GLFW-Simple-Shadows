@@ -24,12 +24,12 @@ void main()
     vec3 color = texture(tex, uv).rgb;
     vec3 norm = normalize(normal);
 
-    vec3 lightColor = vec3(0.3);
+    vec3 lightColor = vec3(0.1);
     vec3 ambient = lightColor * color;
 
     //Vector from pixel position(in world space) to light position
     vec3 lightDir = normalize(lightPos - fragPosition);
-    vec3 diffuse = max(dot(lightDir, norm), 0.0) * lightColor;
+    vec3 diffuse = max(dot(lightDir, norm), 0.0) * color;
 
     //Shadow Calculation
     /////
@@ -64,7 +64,7 @@ void main()
     shadow /= 9.0;
     /////
 
-    vec3 litColor = (ambient+(1.0-shadow) * diffuse) * color;
+    vec3 litColor = (ambient+(1.0-shadow) * diffuse);
     fragColor = vec4(litColor,1.0);
 
 

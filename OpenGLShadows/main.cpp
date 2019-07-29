@@ -205,7 +205,7 @@ int main()
 		glClearColor(0.f, 0.f, 0.f, 1.0f);
 	
 	#pragma region Updates
-		//Valued for our circling light
+		//Values for our circling light
 		glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 10.f);
 		glm::vec3 lightPosition = glm::vec3(-3.5f * glm::cos(totalTime),2.0f, -3.5f* glm::sin(totalTime));
 		glm::mat4 lightView = glm::lookAt(lightPosition,
